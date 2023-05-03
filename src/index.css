@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: scroll;
-  height: 10vh;
   margin-top: 18%;
 }
 
@@ -25,20 +24,28 @@ h1 {
 }
 
 #clear-all {
-  margin: 0;
+  margin: auto;
   text-align: center;
   background-color: rgb(243, 243, 243);
   padding-top: 3%;
   padding-bottom: 3%;
+  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: 560px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 5px;
   background-color: #fff;
   box-shadow: 0 0 10px #000;
   position: relative;
-  height: 20rem;
+  height: auto;
 }
 
 .to-do-title {
@@ -52,7 +59,7 @@ h1 {
 .to-do-title p {
   color: #8c8c8c;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 form .fa {
@@ -155,10 +162,10 @@ input[type="checkbox"] {
 
 footer {
   text-align: center;
-  position: fixed;
   bottom: 10px;
   left: 30%;
   right: 30%;
+  margin-top: 30px;
 }
 
 .taskdesc {
@@ -167,4 +174,13 @@ footer {
 
 .bi-three-dots-vertical {
   margin-left: 230px;
+}
+
+.btn-clr {
+  display: flex;
+  gap: 10px;
+}
+
+.context-menu-item {
+  padding: 5px 12px;
 }
