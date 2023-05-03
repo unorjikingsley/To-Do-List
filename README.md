@@ -130,4 +130,4 @@ I would like to thank Microverse for the opportunity
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/unorjikingsley/To-Do-List6/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/unorjikingsley/To-Do-List/blob/main/LICENSE) licensed.
