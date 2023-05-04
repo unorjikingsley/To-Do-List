@@ -1,5 +1,137 @@
+// /* eslint-disable no-use-before-define */
+// import './index.css';
+// import completeStatus from './status.js';
+
+// let tasks = [];
+// if (localStorage.getItem('tasks')) {
+//   tasks = JSON.parse(localStorage.getItem('tasks'));
+// }
+
+// function displayTasks() {
+//   const todoList = document.getElementById('todo-list');
+//   todoList.innerHTML = '';
+//   tasks.sort((a, b) => a.index - b.index);
+
+//   tasks.forEach((task, i) => {
+//     const listItem = document.createElement('li');
+//     listItem.innerHTML = `
+//       <input type="checkbox" ${task.completed ? 'checked' : ''} />
+//       <span class="taskdesc" contenteditable="true" ${task.completed ? 'strikethrough' : ''}>
+//        ${task.description}</span>
+//       <i class="bi bi-pencil-square edit-task"></i>
+//       <i class="bi bi-trash delete-task"></i>
+//     `;
+
+//     todoList.appendChild(listItem);
+
+//     const checkbox = listItem.querySelector('input[type="checkbox"]');
+//     checkbox.addEventListener('change', () => {
+//       task.completed = checkbox.checked;
+//       completeStatus(i, checkbox.checked);
+//       saveTasks();
+//       displayTasks();
+//     });
+
+//     const editIcon = listItem.querySelector('.edit-task');
+//     editIcon.addEventListener('click', () => {
+//       const taskDesc = listItem.querySelector('.taskdesc');
+//       const input = document.createElement('input');
+//       input.type = 'text';
+//       input.value = taskDesc.innerText;
+//       input.classList.add('edit-input');
+//       taskDesc.replaceWith(input);
+
+//       input.addEventListener('keydown', (e) => {
+//         if (e.key === 'Enter') {
+//           const newDesc = input.value.trim();
+//           if (newDesc.length > 0) {
+//             task.description = newDesc;
+//             taskDesc.innerText = newDesc;
+//             input.replaceWith(taskDesc);
+//             saveTasks();
+//           }
+//         }
+//       });
+//     });
+
+//     const deleteIcon = listItem.querySelector('.delete-task');
+//     deleteIcon.addEventListener('click', () => {
+//       deleteTask(i);
+//       displayTasks();
+//     });
+
+//     const taskItem = listItem.querySelector('span.taskdesc');
+//     taskItem.addEventListener('click', () => {
+//       listItem.classList.toggle('selected');
+//       deleteIcon.classList.toggle('visible');
+//       editIcon.classList.toggle('visible');
+//       if (listItem.classList.contains('selected')) {
+//         listItem.style.backgroundColor = '#f0f0f0';
+//       } else {
+//         listItem.style.backgroundColor = '';
+//       }
+//     });
+//   });
+// }
+
+// displayTasks();
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const form = document.getElementById('form');
+//   form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     const input = document.getElementById('your-todo');
+//     const newTaskDescription = input.value.trim();
+//     if (newTaskDescription) {
+//       addTask(newTaskDescription);
+//       displayTasks();
+//       input.value = '';
+//     }
+//   });
+
+//   const clearAllButton = document.getElementById('clear-all');
+//   clearAllButton.addEventListener('click', () => {
+//     tasks = tasks.filter((task) => !task.completed);
+//     tasks.forEach((task, i) => {
+//       task.index = i;
+//     });
+//     saveTasks();
+//     displayTasks();
+//   });
+// });
+
+// function saveTasks() {
+//   localStorage.setItem('tasks', JSON.stringify(tasks));
+// }
+
+// function addTask(description) {
+//   const task = {
+//     description,
+//     completed: false,
+//     index: tasks.length + 1, // set the index property to the current length of the task array
+//   };
+//   tasks.push(task);
+//   displayTasks();
+//   saveTasks();
+// }
+
+// function deleteTask(index) {
+//   tasks.splice(index, 1);
+//   tasks.forEach((task, i) => {
+//     task.index = i;
+//   });
+//   displayTasks();
+//   saveTasks();
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   displayTasks();
+// });
+
 /* eslint-disable no-use-before-define */
+
 import './index.css';
+import completeStatus from './status.js';
 
 let tasks = [];
 
@@ -18,7 +150,12 @@ function displayTasks() {
 
     const checkbox = listItem.querySelector('input[type="checkbox"]');
     checkbox.addEventListener('change', () => {
-      toggleCompleted(i);
+      // toggleCompleted(i);
+      const completed = checkbox.checked;
+      toggleCompleted(i, completed);
+      if (completed) {
+        completeStatus(i);
+      }
     });
 
     const taskDesc = listItem.querySelector('.taskdesc');
@@ -132,8 +269,8 @@ function editTask(index, newDescription) {
   saveTasks();
 }
 
-function toggleCompleted(index) {
-  tasks[index].completed = !tasks[index].completed;
+function toggleCompleted(index, completed) {
+  tasks[index].completed = completed;
   saveTasks();
 }
 
