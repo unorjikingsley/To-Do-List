@@ -67,15 +67,6 @@ function displayTasks() {
         listItem.removeChild(contextMenu);
       }
 
-      // const contextMenuItemsTwo = listItem.querySelector('.context-menu-item-t');
-      // contextMenuItemsTwo.addEventListener('click', () => {
-      //   deleteTask(i);
-      //   if (listItem.parentElement) {
-      //     listItem.parentElement.removeChild(listItem);
-      //   }
-      // listItem.parentElement.removeChild(listItem);
-      // });
-
       document.addEventListener('click', (e) => {
         if (!listItem.contains(e.target)) {
           listItem.removeChild(contextMenu);
@@ -119,7 +110,7 @@ function addTask(description) {
   const task = {
     description,
     completed: false,
-    index: tasks.length,
+    index: tasks.length + 1, // set the index property to the current length of the task array
   };
   tasks.push(task);
   displayTasks();
