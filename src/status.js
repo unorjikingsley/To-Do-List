@@ -1,9 +1,11 @@
-// eslint-disable-next-line prefer-const
-let tasks = JSON.parse(localStorage.getItem('tasks') || []);
+let tasks = [];
+if (localStorage.getItem('tasks')) {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+}
 
-function CompleteStatus(index) {
+function completeStatus(index) {
   tasks[index].completed = true;
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-export default CompleteStatus;
+export default completeStatus;
