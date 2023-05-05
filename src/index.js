@@ -1,8 +1,12 @@
 /* eslint-disable no-use-before-define */
+
 import './index.css';
+import completeStatus from './status.js';
 
 let tasks = [];
-
+if (localStorage.getItem('tasks')) {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+}
 function displayTasks() {
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';
@@ -18,12 +22,18 @@ function displayTasks() {
 
     const checkbox = listItem.querySelector('input[type="checkbox"]');
     checkbox.addEventListener('change', () => {
-      toggleCompleted(i);
+      // toggleCompleted(i);
+      const completed = checkbox.checked;
+      toggleCompleted(i, completed);
+      if (completed) {
+        completeStatus(i);
+      }
     });
 
     const taskDesc = listItem.querySelector('.taskdesc');
     taskDesc.addEventListener('keydown', (e) => {
-      if (e.keyCode === 13) { // 13 is the keycode for Enter key
+      if (e.keyCode === 13) {
+        // 13 is the keycode for Enter key
         e.preventDefault();
         const newDescription = taskDesc.textContent.trim();
         editTask(i, newDescription);
@@ -71,7 +81,8 @@ function displayTasks() {
         if (!listItem.contains(e.target)) {
           listItem.removeChild(contextMenu);
         }
-      }, { once: true });
+      },
+      { once: true });
     });
 
     todoList.appendChild(listItem);
@@ -132,8 +143,8 @@ function editTask(index, newDescription) {
   saveTasks();
 }
 
-function toggleCompleted(index) {
-  tasks[index].completed = !tasks[index].completed;
+function toggleCompleted(index, completed) {
+  tasks[index].completed = completed;
   saveTasks();
 }
 
