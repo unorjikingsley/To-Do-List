@@ -7,7 +7,6 @@ let tasks = [];
 if (localStorage.getItem('tasks')) {
   tasks = JSON.parse(localStorage.getItem('tasks'));
 }
-
 function displayTasks() {
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';
@@ -33,7 +32,8 @@ function displayTasks() {
 
     const taskDesc = listItem.querySelector('.taskdesc');
     taskDesc.addEventListener('keydown', (e) => {
-      if (e.keyCode === 13) { // 13 is the keycode for Enter key
+      if (e.keyCode === 13) {
+        // 13 is the keycode for Enter key
         e.preventDefault();
         const newDescription = taskDesc.textContent.trim();
         editTask(i, newDescription);
@@ -81,7 +81,8 @@ function displayTasks() {
         if (!listItem.contains(e.target)) {
           listItem.removeChild(contextMenu);
         }
-      }, { once: true });
+      },
+      { once: true });
     });
 
     todoList.appendChild(listItem);
@@ -110,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     saveTasks();
     displayTasks();
   });
-  displayTasks();
 });
 
 function saveTasks() {
@@ -124,9 +124,6 @@ function addTask(description) {
     index: tasks.length + 1, // set the index property to the current length of the task array
   };
   tasks.push(task);
-  tasks.forEach((task, i) => {
-    task.index = i + 1;
-  });
   displayTasks();
   saveTasks();
 }
