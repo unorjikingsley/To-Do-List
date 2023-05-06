@@ -76,7 +76,7 @@ You can deploy this project using:git pages
 
 ## 👥 Authors <a name="authors"></a>
 👤 **berylcl**
-- GitHub: [@berylcl](https://github.com/unorjikingsley)
+- GitHub: [@unorji kingsley](https://github.com/unorjikingsley)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
