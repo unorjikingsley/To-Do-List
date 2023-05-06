@@ -29,7 +29,7 @@
 
  **[To Do List]** is a website that allows users to create and manage their to-do lists online. These websites usually offer features such as the ability to create multiple lists, set due dates and reminders for tasks, prioritize tasks, and mark tasks as completed.
 
-
+- Live Demo: (https://unorjikingsley.github.io/To-Do-List/dist/)
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
@@ -75,7 +75,7 @@ This project built with the help of HTML and JavaScript.
 You can deploy this project using:git pages
 
 ## 👥 Authors <a name="authors"></a>
-👤 **berylcl**
+👤 **Unorji Kingsley**
 - GitHub: [@unorji kingsley](https://github.com/unorjikingsley)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
