@@ -75,6 +75,7 @@ This project built with the help of HTML and JavaScript.
 You can deploy this project using:git pages
 
 ## 👥 Authors <a name="authors"></a>
+
 👤 **Unorji Kingsley**
 - GitHub: [@unorji kingsley](https://github.com/unorjikingsley)
 
